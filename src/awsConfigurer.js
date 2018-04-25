@@ -5,7 +5,7 @@ const oauth = {
   scope : ['email', 'profile', 'openid','aws.cognito.signin.user.admin'],
   redirectSignIn : 'https://zen-cray-e951a5.netlify.com/home',
   redirectSignOut : 'https://zen-cray-e951a5.netlify.com/logout',
-  clientId: '',
+  clientId: process.env.WEBCLIENT_IDENTITY_POOL_ID_AMZ,
   responseType: 'code',
   options: {
     AdvancedSecurityDataCollectionFlag : true
