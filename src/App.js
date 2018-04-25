@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
+import { withOAuth } from 'aws-amplify-react';
 
 import Home from './Home';
 import Logout from './Logout';
@@ -17,4 +18,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withOAuth(App);
