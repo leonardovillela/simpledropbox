@@ -1,5 +1,7 @@
 import Amplify from 'aws-amplify';
 
+console.log(process.env);
+
 const oauth = {
   domain : 'villela.auth.us-east-2.amazoncognito.com',
   scope : ['email', 'profile', 'openid','aws.cognito.signin.user.admin'],
