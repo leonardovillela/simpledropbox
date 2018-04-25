@@ -5,6 +5,7 @@ const oauth = {
   scope : ['email', 'profile', 'openid','aws.cognito.signin.user.admin'],
   redirectSignIn : 'https://zen-cray-e951a5.netlify.com/home',
   redirectSignOut : 'https://zen-cray-e951a5.netlify.com/logout',
+  clientId: '',
   responseType: 'code',
   options: {
     AdvancedSecurityDataCollectionFlag : true
@@ -12,15 +13,17 @@ const oauth = {
 };
 
 Amplify.configure({
-  identityPoolId: process.env.IDENTITY_POOL_ID_AMZ,
-  region: process.env.REGION_AMZ,
-  userPoolWebClientId: process.env.WEBCLIENT_IDENTITY_POOL_ID_AMZ,
-  mandatorySignIn: true,
-  cookieStorage: {
-    domain: process.env.DOMAIN,
-    path: '/',
-    expires: 365,
-    secure: true
+  Auth: {
+    oauth,
+    identityPoolId: process.env.IDENTITY_POOL_ID_AMZ,
+    region: process.env.REGION_AMZ,
+    userPoolWebClientId: process.env.WEBCLIENT_IDENTITY_POOL_ID_AMZ,
+    mandatorySignIn: true,
+    cookieStorage: {
+      domain: process.env.DOMAIN,
+      path: '/',
+      expires: 365,
+      secure: true
+    },
   },
-  Auth: { oauth },
 });
