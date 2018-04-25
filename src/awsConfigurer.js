@@ -11,4 +11,16 @@ const oauth = {
   },
 };
 
-Amplify.configure({ Auth: { oauth } });
+Amplify.configure({
+  identityPoolId: process.env.IDENTITY_POOL_ID_AMZ,
+  region: process.env.REGION_AMZ,
+  userPoolWebClientId: process.env.WEBCLIENT_IDENTITY_POOL_ID_AMZ,
+  mandatorySignIn: true,
+  cookieStorage: {
+    domain: process.env.DOMAIN,
+    path: '/',
+    expires: 365,
+    secure: true
+  },
+  Auth: { oauth },
+});
