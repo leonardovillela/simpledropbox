@@ -1,6 +1,6 @@
 import Amplify from 'aws-amplify';
 
-console.log(process.env);
+console.log(process.env.WEBCLIENT_IDENTITY_POOL_ID_AMZ);
 
 const oauth = {
   domain : 'villela.auth.us-east-2.amazoncognito.com',
